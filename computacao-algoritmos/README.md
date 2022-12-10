@@ -1,6 +1,5 @@
 # Fundamentos de Computação e Algoritmos
 
-Disciplina liberada em 29/11/2022.
 
 ### Aula 01 - Mário Souto
 
