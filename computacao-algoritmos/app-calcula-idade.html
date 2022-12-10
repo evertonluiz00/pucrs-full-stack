@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Calcula Idade</title>
+</head>
+<body>
+    <input type="text" placeholder="Quando voce nasceu" id="campoAnoNascimento" />
+    <button onclick="calcularIdade()">Calcula</button>
+
+    <script>
+        function calcularIdade() {
+            const dataAtual = 2022;
+            const dataNascimento = campoAnoNascimento.value;
+    
+            let idadeCalculada = dataAtual - dataNascimento;
+            alert("Idade: " + idadeCalculada);
+            document.write(idadeCalculada);
+        }
+    </script>
+
+</body>
+</html>

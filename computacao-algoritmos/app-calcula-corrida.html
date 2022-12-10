@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Calcula Corrida</title>
+</head>
+<body>
+    <input type="text" placeholder="Distancia em KM" id="campoDistanciaEmKM" />
+    <input type="text" placeholder="Tempo em minutos" id="campoTempoEmMin" />
+    <button onclick="calcularCorrida()">Calcula</button>
+
+
+    <script>
+
+        function formatarMoeda(algumValor) {
+            let valorFormatado = algumValor.toFixed(2).replace('.', ',');
+            return valorFormatado;
+        }
+    
+        function calcularCorrida() {
+            // [PROCESSAMENTO]
+            // Valida na entrada / Fail Fast Validations
+            let isCampoDistanciaVazio = campoDistanciaEmKM.value == '';
+            if(isCampoDistanciaVazio) {
+                alert("O campo distancia esta vazio.");
+                return;
+            }
+    
+            let isCampoTempoVazio = campoTempoEmMin.value == '';
+            if(isCampoTempoVazio) {
+                alert("O campo tempo esta vazio.");
+                return;
+            }
+    
+            // Organizar as entradas e aplicar a regra de negócio
+            const tarifaDinamica = 1.4;
+            const arredondamento = 0.26;
+    
+            const distanciaEmKM = campoDistanciaEmKM.value * tarifaDinamica;
+            const tempoEmMinutos = campoTempoEmMin.value * arredondamento;
+            
+            let valorDaCorrida = distanciaEmKM + tempoEmMinutos;
+    
+            // [OUTPUT]
+            alert("O valor da corrida e: " + formatarMoeda(valorDaCorrida));
+        }
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Mini Browser</title>
+</head>
+<body>
+
+    <script>
+
+        var aba1 = {
+            titulo: 'Titulo 1',
+            url: 'Url 1'
+        };
+        var aba2 = {
+            titulo: 'Titulo 2',
+            url: 'Url 2'
+        };
+
+        const abas = [aba1, aba2];
+
+        for(aba of abas) {
+            console.log(aba.titulo);
+
+            let conteudoAtualDoHtml = document.body.innerHTML;
+            let conteudoAba = `<li><a href="${aba.url}">${aba.titulo}</a></li>`;
+            document.body.innerHTML = conteudoAtualDoHtml + conteudoAba;
+        }
+
+    </script>
+
+</body>
+</html>

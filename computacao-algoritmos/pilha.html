@@ -1,0 +1,64 @@
+<script>
+    console.log('[Pilha/Stack]');
+
+    let pilha = [
+        'scripts.js',
+        'style.css',
+        'imagem.png'
+    ];
+
+    // Remove o ultimo da pilha
+    pilha.pop();
+
+    // Adiciona um item na pilha
+    pilha.push('doguinho.png');
+
+    console.log(pilha);
+
+    console.log('');
+    console.log('===============');
+    console.log('');
+
+    //===================
+
+    class HistoryStack {
+        constructor() {
+            this.data = []
+        }
+
+        push(item) {
+            this.data.push(item);
+        }
+
+        pop() {
+            this.data.pop();
+        }
+
+        print() {
+            console.log(this.data);
+        }
+
+    }
+
+    const history = new HistoryStack();
+    history.push('01');
+    history.print();
+    history.push('02');
+    history.print();
+    history.push('03');
+    history.print();
+    history.pop();
+    history.print();
+    history.push('04');
+    history.print();
+    history.push('05');
+    history.print();
+    history.pop();
+    history.print();
+    history.push('06');
+    history.print();
+    history.push('07');
+    history.print();
+
+
+</script>
