@@ -1,6 +1,5 @@
 # DevOps Básico
 
-Disciplina liberada em 28/12/2022.
 
 ### Aula 01 - Fabrício Veronez
 
