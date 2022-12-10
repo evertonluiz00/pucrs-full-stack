@@ -35,7 +35,7 @@ Mostra o empilhamento das operações do código: [Latent Flip Loupe](http://lat
 
 [_quokkajs_](https://quokkajs.com/) = Extensão para VSCode
 
-*[Map](./map.html)
-*[Set](./set.html)
+* [Map](./map.html)
+* [Set](./set.html)
 
 ### Aula 03 - Edson Moreno
