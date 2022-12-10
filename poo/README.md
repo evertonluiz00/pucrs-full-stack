@@ -1,6 +1,5 @@
 # Programação Orientada a Objetos
 
-Disciplina liberada em 13/12/2022.
 
 ### Aula 01 - Alessandro Valério
 
