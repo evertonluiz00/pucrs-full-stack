@@ -36,8 +36,8 @@ Pilha = LIFO : Last  In First Out
 
 :star: [Latent Flip Loupe](http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D) -> Mostra o empilhamento das operações do código
 
-* [Map](./map.html)
-* [Set](./set.html)
+* [Map](./map.html) : Dicionários
+* [Set](./set.html) : Conjuntos
 
 :bulb: [_quokkajs_](https://quokkajs.com/) -> Extensão para VSCode
 
@@ -45,3 +45,40 @@ Pilha = LIFO : Last  In First Out
 
 ## Aula 03 - Edson Moreno
 
+Apresenta uma ideia geral de fundamentos da computação, abordando questões de complexidade, tecnologia e componentes, além de técnicas e projetos de algoritmos.
+
+_**Pensamento Computacional**_ -> É importante pensar em exatamente como uma função é contruída dentro.
+
+* [Verifica Paridade](./verificaParidade.js)
+* [verifica Menor Valor](./verificaMenorValor.js)
+
+
+### Complexidade Algorítmica
+
+_Como saber se um algoritmo é eficiente?_
+
+Características de desempenho a serem avaliadas:
+
+* O espaço ocupado 
+* O tempo gasto na execução
+
+Complexidade de um algoritmo é a medida de consumo de recursos
+
+* Tempo de processamento
+* Memória ocupada
+* Largura de banda de comunicação
+* Hardware necessário
+* Etc.
+
+A notação _**O-grande**_ descreve o comportamento limitante de uma função quando o argumento tende a um valor específico ou para o infinito, normalmente, em termos de funções mais simples.
+
+* [Big O Cheat Sheet](https://www.bigocheatsheet.com)
+* [Big O Notation Tutorial](https://www.youtube.com/watch?v=V6mKVRU1evU&list=PLGLfVvz_LVvReUrWr94U-ZMgjYTQ538nT)
+* [Visual Log](https://visualgo.net/en)
+
+Estruturas de dados padrões da lingugagem:
+
+* [Vetor (Array)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array)
+* [Fibonacci](./fibonacci.js)
+* [Conjuntos (Set)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Set)
+* [Dicionários (Map)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Map)
