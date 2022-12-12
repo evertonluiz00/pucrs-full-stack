@@ -82,3 +82,7 @@ Estruturas de dados padrões da lingugagem:
 * [Fibonacci](./fibonacci.js)
 * [Conjuntos (Set)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Set)
 * [Dicionários (Map)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Map)
+
+
+**Lista Encadeada**: Consiste de um determinado número de nodos, cada um com uma referência para o próximo.
+
