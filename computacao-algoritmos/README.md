@@ -76,7 +76,7 @@ A notação _**O-grande**_ descreve o comportamento limitante de uma função qu
 * [Big O Notation Tutorial](https://www.youtube.com/watch?v=V6mKVRU1evU&list=PLGLfVvz_LVvReUrWr94U-ZMgjYTQ538nT)
 * [Visual Log](https://visualgo.net/en)
 
-Estruturas de dados padrões da lingugagem:
+Estruturas de dados padrões da linguagem:
 
 * [Vetor (Array)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [Fibonacci](./fibonacci.js)
@@ -85,4 +85,6 @@ Estruturas de dados padrões da lingugagem:
 
 
 **Lista Encadeada**: Consiste de um determinado número de nodos, cada um com uma referência para o próximo.
+
+* [Lista Encadeada](./listaEncadeada.js)
 
