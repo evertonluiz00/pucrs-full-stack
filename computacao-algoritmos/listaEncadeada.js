@@ -10,45 +10,42 @@ class Nodo {
 class ListaEncadeada {
     constructor() {
         this.count = 0;
-        this.header = null;
-        this.tail = null;
+        this.primeiro = null;
+        this.ultimo = null;
     }
 
     push(element) {
         const nodo = new Nodo(element);
-        let current;
 
-        if (this.header == null) {
-            this.header = nodo;
+        if (this.primeiro == null) {
+            this.primeiro = nodo;
+            this.ultimo = nodo;
         } else {
-            current = this.header;
-
-            while (current.next != null) {
-                current = current.next;
-            }
-
-            current.next = nodo;
+            this.ultimo.next = nodo;
+            this.ultimo = nodo;
         }
+
         this.count++;
     }
 
     add(element) {
         if(this.count == 0) {
-            this.header = this.tail = element;
+            this.primeiro = this.ultimo = element;
         } else {
-            this.tail.next = element;
-            this.tail = element
+            this.ultimo.next = element;
+            this.ultimo = element;
         }
 
         this.count++;
     }
 
     print() {
-        let aux = this.header;
+        let aux = this.primeiro;
         let lista = '';
 
         while(aux != null) {
             lista = lista == '' ? aux.element : lista + ',' + aux.element;
+            //lista = lista == '' ? `| ${aux.element} | `  : lista + ',' + aux.element;
             aux = aux.next;
         }
 

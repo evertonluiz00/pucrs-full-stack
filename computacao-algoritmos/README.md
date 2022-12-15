@@ -86,5 +86,6 @@ Estruturas de dados padrões da linguagem:
 
 **Lista Encadeada**: Consiste de um determinado número de nodos, cada um com uma referência para o próximo.
 
+* [Lista Encadeada - Loiane](https://github.com/loiane/javascript-datastructures-algorithms/blob/main/src/js/data-structures/linked-list.js)
 * [Lista Encadeada](./listaEncadeada.js)
 
