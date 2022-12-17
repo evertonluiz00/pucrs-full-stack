@@ -14,6 +14,7 @@ class ListaEncadeada {
         this.ultimo = null;
     }
 
+    
     push(element) {
         const nodo = new Nodo(element);
 
@@ -28,28 +29,23 @@ class ListaEncadeada {
         this.count++;
     }
 
-    add(element) {
-        if(this.count == 0) {
-            this.primeiro = this.ultimo = element;
-        } else {
-            this.ultimo.next = element;
-            this.ultimo = element;
-        }
 
-        this.count++;
+    printNodo(nodo) {
+        let nextElement = nodo.next != null ? nodo.next.element : ' ';
+        return `[${nodo.element} | ${nextElement}]`;
     }
 
-    print() {
-        let aux = this.primeiro;
-        let lista = '';
 
-        while(aux != null) {
-            lista = lista == '' ? aux.element : lista + ',' + aux.element;
-            //lista = lista == '' ? `| ${aux.element} | `  : lista + ',' + aux.element;
-            aux = aux.next;
+    printLista() {
+        let printList = '';
+        let nodoI = this.primeiro;
+
+        while(nodoI != null) {
+            printList = printList == '' ? this.printNodo(nodoI) : `${printList}  ->  ${this.printNodo(nodoI)}`;
+            nodoI = nodoI.next;
         }
 
-        console.log(lista);
+        console.log(printList);
     }
 }
 
@@ -57,20 +53,20 @@ let myList = new ListaEncadeada();
 
 //myList.add(new Nodo(1));
 myList.push(1);
-myList.print();
+myList.printLista();
 
 //myList.add(new Nodo(2));
 myList.push(2);
-myList.print();
+myList.printLista();
 
 //myList.add(new Nodo('Suco'));
 myList.push('Suco');
-myList.print();
+myList.printLista();
 
 //myList.add(new Nodo(3));
 myList.push(3);
-myList.print();
+myList.printLista();
 
 //myList.add(new Nodo('Laranja'));
 myList.push('Laranja');
-myList.print();
+myList.printLista();
