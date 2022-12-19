@@ -90,3 +90,21 @@ Estruturas de dados padrões da linguagem:
 * [Lista Encadeada](./listaEncadeada.js)
 
 **Árvores**: Estruturas de dados não lineares, que permitem a implementação de vários algoritmos mais rápidos do que no uso de estruturas de dados lineares, como as listas.
+
+* [Árvore Binária - Loiane](https://github.com/loiane/javascript-datastructures-algorithms/blob/main/src/js/data-structures/binary-search-tree.js)
+* [Árvore Binária - Adrian](https://github.com/amejiarosario/dsa.js-data-structures-algorithms-javascript/blob/master/src/data-structures/trees/binary-tree-node.js)
+
+**Técnicas e Projetos de Algoritmos** - Tipos:
+
+* Divisão e conquista
+* Programação dinâmica
+* Gulosos (greedy)
+* Algoritmos de Backtracking
+
+* [Algoritmos - Loiane](https://github.com/loiane/javascript-datastructures-algorithms/tree/main/src/js/algorithms)
+
+
+**Comparação entre algoritmos de ordenação**
+
+* [Comparison Sorting Algorithms](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
+* [Sorting Algorithms Animations](https://www.toptal.com/developers/sorting-algorithms)
