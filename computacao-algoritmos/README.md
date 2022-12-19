@@ -89,3 +89,4 @@ Estruturas de dados padrões da linguagem:
 * [Lista Encadeada - Loiane](https://github.com/loiane/javascript-datastructures-algorithms/blob/main/src/js/data-structures/linked-list.js)
 * [Lista Encadeada](./listaEncadeada.js)
 
+**Árvores**: Estruturas de dados não lineares, que permitem a implementação de vários algoritmos mais rápidos do que no uso de estruturas de dados lineares, como as listas.
