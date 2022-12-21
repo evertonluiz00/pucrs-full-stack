@@ -19,7 +19,30 @@ Programação Orientada a objetos é um **paradigma de programação** com foco 
 
 **Programação Procedural** - Paradigma com foco no uso de procedimentos e funções para facilitar o reuso:
 
+```JavaScript
+let numero1 = 10;
+let numero2 = 20;
 
+function add(n1, n2) {
+    return n1 + n2;
+}
+
+let z = add(numero1, numero2);
+console.log(z);
+```
+
+```JavaScript
+let horaExtra = 100;
+let qtHoras = 20;
+let salarioFixo = 5000;
+
+function calculaSalario(horaExtra, qtHoras) {
+    return salarioFixo + (horaExtra * qtHoras);
+}
+
+let total = calculaSalario(horaExtra, qtHoras);
+console.log(total);
+```
 
 Estudo sobre conceitos de Classes (atributos, métodos, propriedade, visibilidade, instância ou classe).
 
