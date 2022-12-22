@@ -69,7 +69,7 @@ var nomeObjeto = {
 ```
 
 ```JavaScript
-var pessoa = {
+var pessoa1 = {
     nome: 'João',
     idade: 40,
     saudar: function() {
@@ -77,6 +77,56 @@ var pessoa = {
     }
 };
 ```
+
+```JavaScript
+var pessoa2 = {
+    nome: 'Maria',
+    idade: 20,
+    saudar: function() {
+        console.log('Oi!');
+    }
+};
+```
+
+```JavaScript
+console.log(pessoa1.nome);
+console.log(pessoa1['nome']);
+
+console.log(pessoa2.idade);
+console.log(pessoa2['idade']);
+
+pessoa1['nome'] = 'Juca';
+pessoa1.idade = 10;
+
+pessoa1.saudar();
+pessoa1.saudar = function() {
+    console.log('Opa!!');
+}
+```
+
+JavaScript possui dois **Tipos de Dados**
+
+* Tipos de valor (Primitivos) : representação de valores _imutáveis_
+  - Number
+  - String
+  - Boolean
+  - Symbol
+  - undefined
+  - null
+* Tipos de referência : representação de valores _mutáveis e complexos_
+  - Object (Object, Function, Array)
+
+
+### Conceitos
+
+* Encapsulamento
+  - Permitir que atributos e métodos sejam **agrupados** de certa forma em uma **interface bem definida** para manipular os dados de um objeto de forma eficiente
+  - **Isolamento** entre partes de um programa
+  - Saber **o que um objeto faz** e não como ele faz
+  - **Proteção** de atributos
+* Abstração
+* Herança
+* Polimorfismo
 
 Estudo sobre conceitos de Classes (atributos, métodos, propriedade, visibilidade, instância ou classe).
 
