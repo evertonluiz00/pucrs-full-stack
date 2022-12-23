@@ -125,16 +125,23 @@ JavaScript possui dois **Tipos de Dados**
   - Saber **o que um objeto faz** e não como ele faz
   - **Proteção** de atributos
 * Abstração
+  - POO é **amplamente baseada** na abstração digital da vida real
+  - **Objetos** são representações/abstrações do que queremos implementar do que observamos no mundo ao nosso redor
+  - Buscamos o **essencial** e deixamos de lado o que não importa, _focamos no que realmente precisamos representar em nossos objetos_
 * Herança
+  - Permite o **compartilhamento** de atributos e métodos entre objetos
+  - _Reaproveita código_ e _agrupa o que é comun_ a diferentes objetos
+  - Busca identificar e agrupar **comportamentos generalizados** ou **especializados**
+  - Ajuda a eliminar **redundâncias**
 * Polimorfismo
+  - Através da _herança_ é possível **alterar um comportamento herdado** de um objeto-pai
+  - Permite uma forte **separação de interesses**
+  - **Limpeza de código**, removendo lógica excedente
+  - **Sobrescrita**: métodos com o _mesmo nome e assinatura_ em **diferentes objetos** relacionados por **herança**
+  - **Sobrecarga**: métodos com o _mesmo nome_ mas **diferentes assinaturas** em **diferentes objetos** relacionados por **herança**
 
-Estudo sobre conceitos de Classes (atributos, métodos, propriedade, visibilidade, instância ou classe).
+JavaScript não suporta sobrecarga de métodos
 
-Estudo sobre conceitos de Herança, Polimorfismo, Interfaces, Genéricos e Arrow functions.
-
-Estudo sobre funções de filtragem, mapeamento e redução.
-
-Estudos sobre construtores de tipos.
 
 <br/>
 
