@@ -143,6 +143,74 @@ JavaScript possui dois **Tipos de Dados**
 JavaScript não suporta sobrecarga de métodos
 
 
+### Criando Objetos
+
+* Literais
+
+```JavaScript
+var nomeObjeto = {
+    nomeMembro1: 'valorMembro1',
+    nomeMembro2: 'valorMembro2',
+    nomeMembro3: 'valorMembro3'
+};
+```
+
+* Fábricas
+  - funções que criam e retornam objetos
+
+```JavaScript
+function criarPessoa(nome, anoDeNascimento) {
+  return {
+    nome: nome,
+    anoDeNascimento: anoDeNascimento
+  };
+};
+
+const pessoa = criarPessoa('Nome', 1990);
+```
+
+* Construtores
+  - funções que criam obejtos
+
+```JavaScript
+function Pessoa(nome, anoDeNascimento) {
+  this.nome = nome
+  this.anoDeNascimento = anoDeNascimento
+};
+
+const pessoa = new Pessoa('Nome', 1990);
+```
+
+* Protótipos
+  - mecanismo de herança no JavaScript
+  - um objeto de protótipo pode ter outro objeto (e assim por diante)
+  - é a chamada _cadeia de protótipos_
+
+```JavaScript
+Object.getPrototypeOf(pessoa);
+```
+
+* Classes
+  - modelos para criar objetos
+
+```JavaScript
+class Pessoa {
+  constructor(nome, anoDeNascimento) {
+    this.nome = nome;
+    this.anoDeNascimento = anoDeNascimento;
+  }
+};
+
+const pessoa = new Pessoa('Nome', 1990);
+```
+
+* [Exemplo de Classe Pessoa e Herança](./classePessoa.js)
+
+
+**Membros e suas propriedades**: atributos e métodos podem ser de objetos ou estáticos
+* de objetos = cada objetos possui o seu
+* estáticos = são compartilhados, não é necessário ter uma instanciar do objeto
+
 <br/>
 
 ## Aula 02 - Alessandro Valério
