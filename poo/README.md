@@ -117,6 +117,10 @@ JavaScript possui dois **Tipos de Dados**
   - Object (Object, Function, Array)
 
 
+<br/>
+
+## Aula 02 - Alessandro Valério
+
 ### Conceitos
 
 * Encapsulamento
@@ -225,8 +229,17 @@ const pessoa = new Pessoa('Nome', 1990);
 
 <br/>
 
-## Aula 02 - Alessandro Valério
-
-<br/>
-
 ## Aula 03 - Edson Moreno
+
+
+### Objetos
+
+Conjuntos diferentes de objetos são disponibilizados:
+* Intrínsecos ao JavaScript
+  - Array, Boolean, Date, Math, Number, String, RegExp, Global
+* Fornecidos pelo navegador
+  - Window, Navigation, Screen, History, Location, Console
+* Fornecidos pela API DOM
+  - Document, Event, etc
+
+Cada objeto possui métdos e propriedades
