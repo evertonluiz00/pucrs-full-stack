@@ -208,8 +208,20 @@ const pessoa = new Pessoa('Nome', 1990);
 
 
 **Membros e suas propriedades**: atributos e métodos podem ser de objetos ou estáticos
-* de objetos = cada objetos possui o seu
-* estáticos = são compartilhados, não é necessário ter uma instanciar do objeto
+* de objetos
+  - cada objetos possui o seu
+  - é necessário criar/instanciar um objeto para pode usar
+* estáticos
+  - são compartilhados, pois possui lógica que é executada da mesma maneira em qualquer objeto de um tipo ou classe
+  - não é necessário ter uma instancia do objeto para usar
+  - métodos utilitários, independentes de objetos
+  - [Exemplo de método estático](./utils.js)
+
+
+**Visibilidade**: Atributos e métodos podem ser:
+* Públicos
+* Privados
+* Protegidos
 
 <br/>
 
