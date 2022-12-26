@@ -243,3 +243,69 @@ Conjuntos diferentes de objetos são disponibilizados:
   - Document, Event, etc
 
 Cada objeto possui métdos e propriedades
+
+### Funções
+
+* Definidas com a palavra reservada _function_
+* Pode possuir um nome
+  - Existe o conceito de função anônima
+* Pode ter argumentos e retornar valor
+  - A passagem de parâmetros é por valor
+  - O número de parâmetros passados não é verificado
+
+#### Além da função básica
+
+* JavaScript não é uma linguagem de programação funcional, mas...
+  - Permite manipular funções como objetos, logo ...
+  - Pode-se usar técnicas de programação funcional em JS
+* Métodos de array do The ECMAScript 5 tais como map() e reduce()
+  - Prestam-se a tal estilo de programação funcional
+* Em JavaScript, funções podem ser manipuladas assim como valores
+  - Pode-se atribuir a variáveis
+  - Pode-se passar a função como parâmetro de outra função
+  - Pode-se retornar uma função como valor de retorno de outra função, etc
+* Uma forma alterantiva de definir funções é através de expressões:
+```JavaScript
+let identificador = function (lista de parâmetros) { bloco de comandos };
+```
+* Outra forma alterantiva de definir funções é através de "expressões lambda":
+```JavaScript
+let identificador = (lista de parâmetros) => expressão;
+```
+```JavaScript
+let identificador = (lista de parâmetros) => { bloco de comandos };
+```
+
+#### Funções de fechamento (closure)
+
+* Função que se "lembra" do ambinete em que ele foi criada
+* Permite associar dados do ambiente com uma função que trabalha estes dados
+  - Execução com contexto
+  - Diretamente ligado com programação orientada a obejtos
+
+
+#### Funções de seta (arrow functions)
+
+* Sintaxe mais curta quando comparada a uma função
+* Restrições
+  - Melhora aplicadas para funções que não sejam métodos
+  - Não podem ser usadas como construtoras de objetos
+
+
+#### Funções de alta ordem
+
+Explorar funções de transformação sobre arrays com arrow functions
+
+* Array.some()
+  - sinaliza se ao menos um dos elementos do array atende a regra
+  - [Exemplo de array.some](./arraySome.js)
+* Array.every()
+  - sinaliza se todos os elementos do arrasy atendem a regra
+* Array.filter()
+  - retorna um novo array com a lista de itens que atende a regra
+* Array.foreach()
+  - itera sobre cada um dos itens da lista, aplicando alguma ação
+* Array.reduce()
+  - acumula itens do array conforme uma regra
+* Array.map()
+  - permite transformar os elementos da lista
