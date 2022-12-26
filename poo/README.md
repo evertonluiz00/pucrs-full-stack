@@ -313,3 +313,43 @@ Explorar funções de transformação sobre arrays com arrow functions
 * Array.map()
   - permite transformar os elementos da lista
   - [Exemplo de array.map](./arrayMap.js)
+
+
+  ### Modularização
+
+  * É extremanente conveniente dividir e organizar código em módulos
+    - Um módulo é um agrupamento de código que provê funcionalidade para outros módulos utilizarem (sua interface) e especifica outros módulos que ele utiliza (suas dependências)
+  * Benefícios
+    - Facilita a organização e a distribuição de blocos de funções e objetos relacionados
+    - Permite a reutilização de código
+    - Provê um "espaço de nomes" para evitar o compartilhamento de variáveis globais
+  * Diferentes padrões para implementação de módulos
+    - CommonJS
+    - Asynchronous Module Definition
+    - Universal Module Definition
+    - ECMAScript 6 Modules
+
+  #### CommonJS
+
+  * Característica
+    - Padrão utilizado por um grande número de pacotes disponibilizados via NPM
+    - Ambiente de execução do NodeJS suporta o padrão CommonJS
+  * Módulos que contém as definições
+    - Definem suas interfaces via exports e module.exports
+    - Usa-se **exports** para adicionar propriedades ao objeto criado automaticamente pelo sistema de módulos
+    - Usa **module.exports** para definir o próprio objeto a ser retornado
+  * Dependências para outros modulos são importadas via função **require**
+
+  #### ESCMAScript 6 (ES6)
+
+  * Padrão nativo do JavaScript disponível a partir do ECMAScript 6  (2015)
+  * Ambiente de execução do NodeJS suporta o padrão ES6
+    - Flag --experimental-modules ao executar Node
+  * Módulos definem suas interfaces via palavra-chave **_export_**
+    - Pode-se exportar múltiplas funções, classes, let, const, var
+    - Vinculação de exportação default é tratada como elemento principal do módulo
+  * Dependências para outros módulos são importadas via palavra-chave **_import_**
+    - Importar um nome a partir do módulo, importa a exportação default
+    - Importar com sintaxe de desestruturação {} permite importar elementos indicados
+    - Importar com * importa o módulo inteiro
+    - Importaçãoes com {} ou * permite modificar o nome do que foi importado via operador **_as_**
