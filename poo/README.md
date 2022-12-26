@@ -301,11 +301,15 @@ Explorar funções de transformação sobre arrays com arrow functions
   - [Exemplo de array.some](./arraySome.js)
 * Array.every()
   - sinaliza se todos os elementos do arrasy atendem a regra
+  - [Exemplo de array.every](./arrayEvery.js)
 * Array.filter()
   - retorna um novo array com a lista de itens que atende a regra
+  - [Exemplo de array.filter](./arrayFilter.js)
 * Array.foreach()
   - itera sobre cada um dos itens da lista, aplicando alguma ação
 * Array.reduce()
   - acumula itens do array conforme uma regra
+  - [Exemplo de array.reduce](./arrayReduce.js)
 * Array.map()
   - permite transformar os elementos da lista
+  - [Exemplo de array.map](./arrayMap.js)
