@@ -315,41 +315,79 @@ Explorar funções de transformação sobre arrays com arrow functions
   - [Exemplo de array.map](./arrayMap.js)
 
 
-  ### Modularização
+### Modularização
 
-  * É extremanente conveniente dividir e organizar código em módulos
-    - Um módulo é um agrupamento de código que provê funcionalidade para outros módulos utilizarem (sua interface) e especifica outros módulos que ele utiliza (suas dependências)
-  * Benefícios
-    - Facilita a organização e a distribuição de blocos de funções e objetos relacionados
-    - Permite a reutilização de código
-    - Provê um "espaço de nomes" para evitar o compartilhamento de variáveis globais
-  * Diferentes padrões para implementação de módulos
-    - CommonJS
-    - Asynchronous Module Definition
-    - Universal Module Definition
-    - ECMAScript 6 Modules
+* É extremanente conveniente dividir e organizar código em módulos
+  - Um módulo é um agrupamento de código que provê funcionalidade para outros módulos utilizarem (sua interface) e especifica outros módulos que ele utiliza (suas dependências)
+* Benefícios
+  - Facilita a organização e a distribuição de blocos de funções e objetos relacionados
+  - Permite a reutilização de código
+  - Provê um "espaço de nomes" para evitar o compartilhamento de variáveis globais
+* Diferentes padrões para implementação de módulos
+  - CommonJS
+  - Asynchronous Module Definition
+  - Universal Module Definition
+  - ECMAScript 6 Modules
 
-  #### CommonJS
+#### CommonJS
 
-  * Característica
-    - Padrão utilizado por um grande número de pacotes disponibilizados via NPM
-    - Ambiente de execução do NodeJS suporta o padrão CommonJS
-  * Módulos que contém as definições
-    - Definem suas interfaces via exports e module.exports
-    - Usa-se **exports** para adicionar propriedades ao objeto criado automaticamente pelo sistema de módulos
-    - Usa **module.exports** para definir o próprio objeto a ser retornado
-  * Dependências para outros modulos são importadas via função **require**
+* Característica
+  - Padrão utilizado por um grande número de pacotes disponibilizados via NPM
+  - Ambiente de execução do NodeJS suporta o padrão CommonJS
+* Módulos que contém as definições
+  - Definem suas interfaces via exports e module.exports
+  - Usa-se **exports** para adicionar propriedades ao objeto criado automaticamente pelo sistema de módulos
+  - Usa **module.exports** para definir o próprio objeto a ser retornado
+* Dependências para outros modulos são importadas via função **require**
 
-  #### ESCMAScript 6 (ES6)
+#### ESCMAScript 6 (ES6)
 
-  * Padrão nativo do JavaScript disponível a partir do ECMAScript 6  (2015)
-  * Ambiente de execução do NodeJS suporta o padrão ES6
-    - Flag --experimental-modules ao executar Node
-  * Módulos definem suas interfaces via palavra-chave **_export_**
-    - Pode-se exportar múltiplas funções, classes, let, const, var
-    - Vinculação de exportação default é tratada como elemento principal do módulo
-  * Dependências para outros módulos são importadas via palavra-chave **_import_**
-    - Importar um nome a partir do módulo, importa a exportação default
-    - Importar com sintaxe de desestruturação {} permite importar elementos indicados
-    - Importar com * importa o módulo inteiro
-    - Importaçãoes com {} ou * permite modificar o nome do que foi importado via operador **_as_**
+* Padrão nativo do JavaScript disponível a partir do ECMAScript 6  (2015)
+* Ambiente de execução do NodeJS suporta o padrão ES6
+  - Flag --experimental-modules ao executar Node
+* Módulos definem suas interfaces via palavra-chave **_export_**
+  - Pode-se exportar múltiplas funções, classes, let, const, var
+  - Vinculação de exportação default é tratada como elemento principal do módulo
+* Dependências para outros módulos são importadas via palavra-chave **_import_**
+  - Importar um nome a partir do módulo, importa a exportação default
+  - Importar com sintaxe de desestruturação {} permite importar elementos indicados
+  - Importar com * importa o módulo inteiro
+  - Importaçãoes com {} ou * permite modificar o nome do que foi importado via operador **_as_**
+
+
+### Desestruturação
+
+* A ideia é "desempacotar" algo em vários "pedaços"
+* A desestruturação é aplicável, por exemplo em:
+  - Módulos importados
+  - Arrays
+  - Obetos
+  - etc
+
+
+### JSON
+
+* JSON = JavaScript Object Notation
+* Formato textual para serialização de dados
+  - É independente de linguagem
+  - Muito utilizado para retorno de Serviços Web Rest
+* JSON é capaz de representar
+  - Tipos primitivos: strings, números, booleanos, null
+  - Tipos estruturados: objetos, arranjos
+* JavaScript provê o método JSON.stringfy
+  - Converte um objeto para o formato JSON (string)
+  - Cuidado: não pode existir referências circulares dentro do objeto
+* JavaScript provê o método JSON.parse para converter uma string no formato JSON em um objeto
+  - Cuidado: não assuma que a conversão suporta qualquer tipo (Date, por exemplo)
+
+
+### Exceções
+
+* Falhas nas condições podem ser indicadas ao programador através do conceito de exceções
+* Quando uma função encontra uma situação anormal, ele informa tal anormalidade eplo lançamento (geração) de uma exceção
+  - Ex: a função JSON.parse(string), irá lançar uma exceção SyntaxError se o formato do objeto JSON for incorreto
+* Quando um bloco de código tenta detectar uma situação anormal, ele captura essa exeção, possivelmente indicando que irá realizar o tratamento do probelma encontrado
+
+
+### Funções Assíncronas
+
