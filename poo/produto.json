@@ -1,0 +1,9 @@
+{
+    "productName": "Computer Monitor",
+    "price": "229.00",
+    "specifications": {
+        "size": 22,
+        "type": "LCD",
+        "colors": ["balck", "red", "white"]
+    }
+}

@@ -339,6 +339,7 @@ Explorar funções de transformação sobre arrays com arrow functions
   - Usa-se **exports** para adicionar propriedades ao objeto criado automaticamente pelo sistema de módulos
   - Usa **module.exports** para definir o próprio objeto a ser retornado
 * Dependências para outros modulos são importadas via função **require**
+* [Exemplo de import e export CommonJS](./classeCarro.js)
 
 #### ESCMAScript 6 (ES6)
 
@@ -353,6 +354,7 @@ Explorar funções de transformação sobre arrays com arrow functions
   - Importar com sintaxe de desestruturação {} permite importar elementos indicados
   - Importar com * importa o módulo inteiro
   - Importaçãoes com {} ou * permite modificar o nome do que foi importado via operador **_as_**
+* [Exemplo de import e export ES6](./classeCarro.mjs)
 
 
 ### Desestruturação
@@ -379,6 +381,7 @@ Explorar funções de transformação sobre arrays com arrow functions
   - Cuidado: não pode existir referências circulares dentro do objeto
 * JavaScript provê o método JSON.parse para converter uma string no formato JSON em um objeto
   - Cuidado: não assuma que a conversão suporta qualquer tipo (Date, por exemplo)
+* [Exemplo de arquivo JSON](./produto.json)
 
 
 ### Exceções
