@@ -394,3 +394,46 @@ Explorar funções de transformação sobre arrays com arrow functions
 
 ### Funções Assíncronas
 
+A API de programação do JavaScript possui muitas funções de execução assíncrona.
+Por exemplo, o pacote "fs" do NodeJS possui muitas funções para manipulação de arquivos de maneira assíncrona.
+
+#### Callbacks
+
+Muitas APIs de JavaScript para funções assíncronas utiliza o conceito de funções de callback
+
+* São funções que são chamadas quando uma outra função terminou seu processamento
+* Resulta em pequenas funções que são encadeadas para realizar um processamento
+  - Encadear múltiplos callbacks resulta em um código de difícil manutenção
+
+#### Promises
+
+* A partir do ECMAScript6, a linguagem fornece o suporte a objetos _Promise_
+* Permitem o controle do fluxo de execução assíncrono de funções de maneira mais "limpa" do que o uso de callbacks
+* Representa o resultado final ou falha de uma operação assíncrona
+* Ideia: uma função irá retornar uma promessa de um objeto contendo o resultado de interesse no futuro
+
+```JavaScript
+let promise = new Promise (function(resolve, reject){
+  // corpo do executor
+});
+```
+
+* Propriedade internas da promise (sem acesso público):
+  - state: representa o estado da execução da promise, inicialmente "pending"
+  - result: representa o resultado da computação, inicialmente undefined
+* A ação de um objeto promise pode:
+  - Terminar com sucesso
+    + Diz-se que a promise foi "resolvida" e está no estado "fulfilled"
+    + Executa a função resolve(valor)
+  - Terminar com falha
+    + Diz-se que a promise foi "rejeitada" e está no estado "rejected"
+    + Executa a função reject
+* Para obter o resultado de uma promise, utiliza-se o método _then_
+* Para tratar de uma promise rejeitada utiliza-se o métdo _catch_
+
+[Exemplo de promise 1](./promise01.js)
+[Exemplo de promise 2](./promise02.js)
+
+#### Async/Await
+
+[Exemplo de Async/Await](./asyncawait.js)
