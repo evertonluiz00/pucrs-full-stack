@@ -89,6 +89,49 @@ Utilizar repositório de código para o desenvolvimento (Git / GitHub)
 
 **SSH**: Trata-se de uma forma eficiente de credenciamento ou atenticação entre um determinado ambinete e o usuário que o utiliza. O SSH fornece um canal seguro sobre uma rede insegura em uma arquitetura cliente-servidor, e é muito usado no login remoto de utilizadores a sistemas de computadores.
 
+
+
+### Containers
+
+**Todos os processos da minha etapa de criação de ambiente e execução de aplicação serão feitos em containers**
+
+Características:
+
+* Isolamento entre processos
+* Controle sobre os processos
+* Idempotência
+* Portabilidade
+* Confiabilidade de comportamento
+
+
+Imagem x Container
+
+* A imagem é o elemento base para criar um container
+* Todo container tem como origem uma imagem
+* A imagem é o projeto de execução do container
+* Analogia: A imagem é a classe enquanto o container é o objeto da classe criado
+
+
+#### Docker
+
+[Docker - Home](https://www.docker.com/)
+[Docker - Docs](https://docs.docker.com/)
+
+```
+// criação de container
+docker container run hello-world
+
+// lista os containers ativos em execução
+docker container ls
+
+// lista todos os containers
+docker container ls -a
+
+// excluir container
+docker container rm id_container
+```
+
+
 <br/>
 
 ## Aula 02 - Fabrício Veronez
