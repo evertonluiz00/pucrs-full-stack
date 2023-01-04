@@ -127,6 +127,9 @@ docker container ls
 // lista todos os containers
 docker container ls -a
 
+// lista as imagens
+docker image ls
+
 // excluir container
 docker container rm id_container
 ```
@@ -135,6 +138,26 @@ docker container rm id_container
 <br/>
 
 ## Aula 02 - Fabrício Veronez
+
+**A base para a criação de uma imagem é o dockerfile.**
+
+Com o dockefile você consegue criar a sua imagem em qualquer lugar que crie imagens docker, e crie imagens de container baseadas em dockerfile.
+
+* Consegue criar automações para criação de imagens
+* Garante que imagem será sempre criada da mesma maneira
+
+Criação do Dockerfile
+```Dockerfile
+FROM ubuntu
+RUN apt update && apt install net-tools --yes
+RUN apt install curl --yes
+```
+
+```
+// comando para criar a imagem do dockerfile
+docker build -t nome_imagem -f Dockerfile .
+```
+
 
 <br/>
 
