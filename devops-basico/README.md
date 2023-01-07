@@ -153,11 +153,47 @@ RUN apt update && apt install net-tools --yes
 RUN apt install curl --yes
 ```
 
+Criação do .dockerignore
+```
+node_modules
+```
+
 ```
 // comando para criar a imagem do dockerfile
 docker build -t nome_imagem -f Dockerfile .
+docker build -t namespace/repositorio:tag -f Dockerfile .
 ```
 
+```
+// criar container com base na imagem criada
+docker container run -d -p 8080:8080 evertonluiz00/conversap-temperatura:v1
+```
+
+
+**Algumas opções de uso no Dockerfile**
+
+* FROM: inicializa o build de uma imagem a partir de imagem base
+* RUN: executa um comando
+* LABEL: adiciona metadados a imagem
+* CMD: define o comando e/ou parâmetros padrão
+* EXPOSE: define que o container precisa expor a porta em questão
+* ARG: define um argumento pra ser usado no processo de construção
+* ENV: define variáveis de ambiente
+* ADD: copia arquivos, diretórios ou arquivos remotos, e adiciona ao sistema de arquivos da imagem
+* COPY: copia arquivos ou diretórios, e adiciona ao sistema de arquivos da imagem
+* ENTRYPOINT: ajuda você a configurar um container que pode ser executado como um executável
+* VOLUME: define volumes que devem ser definidos
+* WORKDIR: define o seu diretório corrente
+
+
+**Docker Hub**
+
+Serve para distribuir a imagem criada.
+
+[Docker - Hub](https://hub.docker.com/)
+
+O nome da imagem criada deve ser constituído por:
+* namespace/repositorio:tag(versao)
 
 <br/>
 
