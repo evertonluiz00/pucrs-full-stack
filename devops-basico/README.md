@@ -166,7 +166,7 @@ docker build -t namespace/repositorio:tag -f Dockerfile .
 
 ```
 // criar container com base na imagem criada
-docker container run -d -p 8080:8080 evertonluiz00/conversap-temperatura:v1
+docker container run -d -p 8080:8080 evertonluiz00/conversao-temperatura:latest
 ```
 
 
@@ -194,6 +194,37 @@ Serve para distribuir a imagem criada.
 
 O nome da imagem criada deve ser constituído por:
 * namespace/repositorio:tag(versao)
+
+
+
+### Introdução à Pipeline de CI e CD
+
+Pipeline é um conjunto de etapas realizadas sequencialmente. Cada etapa é validada e a próxima somente é realizado caso a atual tenha sucesso.
+
+**CI (Continuous Integration)**
+
+A integração contínua uma vez ligada ao processo de commit e a parte de software, está muito mais próxima do desenvolvedor.
+O processo de integração contínua termina na geração da release
+
+**CD (Continuous Deploy)**
+
+A implantação é a fase do ciclo de vida de um software que corresponde à passagem do software para a produção.
+A liberação, a instalação, a ativação e a desativação são as principais atividades ou etapas do deploy.
+O processo inicia através da geração da release
+
+
+#### Github Actions
+
+* Workflow
+* Events
+* Jobs
+* Steps
+* Actions
+* Runners
+
+
+[Arquivo yml - parametrização do workflow a partir do commit](https://github.com/evertonluiz00/conversao-temperatura/blob/main/.github/workflows/main.yml)
+
 
 <br/>
 
