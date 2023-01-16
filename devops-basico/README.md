@@ -230,3 +230,9 @@ O processo inicia através da geração da release
 
 ## Aula 03 - Marco Aurélio Souza Mangan
 
+
+Repositórios da PetClinic
+
+[PetClinic J2EE](https://github.com/Jakarta-EE-Petclinic/petclinic-javaee7)
+[PetClinic Rest](https://github.com/spring-petclinic/spring-petclinic-rest)
+[PetClinic Angular](https://github.com/spring-petclinic/spring-petclinic-angular)
