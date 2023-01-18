@@ -115,6 +115,9 @@ Imagem x Container
 #### Docker
 
 [Docker - Home](https://www.docker.com/)
+
+<br/>
+
 [Docker - Docs](https://docs.docker.com/)
 
 ```
@@ -190,7 +193,11 @@ docker container run -d -p 8080:8080 evertonluiz00/conversao-temperatura:latest
 
 Serve para distribuir a imagem criada.
 
+<br/>
+
 [Docker - Hub](https://hub.docker.com/)
+
+<br/>
 
 O nome da imagem criada deve ser constituído por:
 * namespace/repositorio:tag(versao)
@@ -222,6 +229,7 @@ O processo inicia através da geração da release
 * Actions
 * Runners
 
+<br/>
 
 [Arquivo yml - parametrização do workflow a partir do commit](https://github.com/evertonluiz00/conversao-temperatura/blob/main/.github/workflows/main.yml)
 
@@ -230,9 +238,28 @@ O processo inicia através da geração da release
 
 ## Aula 03 - Marco Aurélio Souza Mangan
 
-
 Repositórios da PetClinic
 
 [PetClinic J2EE](https://github.com/Jakarta-EE-Petclinic/petclinic-javaee7)
+<br/>
+
 [PetClinic Rest](https://github.com/spring-petclinic/spring-petclinic-rest)
+<br/>
+
 [PetClinic Angular](https://github.com/spring-petclinic/spring-petclinic-angular)
+<br/>
+
+
+**DevOps**
+
+* Definir, controlar e aprimorar os processos do ciclo de vida do software.
+* Construir, testar, empacotar e implantar software e sistemas de forma segura e confiável.
+* Ampliar a comunicação e integração de desenvolvedores e demais envolvidos.
+
+**Preocupações**
+
+* Construir (to build): o processo de gerar um sistema executável e testável a partir de código-fonte
+* Empacotar (to package): combinar componentes relacionados em um único item implantável
+* Implantar (to deploy): iniciar a etapa do ciclo de vida do software em que a operação acontece.
+
+
