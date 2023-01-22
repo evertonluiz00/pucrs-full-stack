@@ -263,3 +263,129 @@ Repositórios da PetClinic
 * Implantar (to deploy): iniciar a etapa do ciclo de vida do software em que a operação acontece.
 
 
+**Mudanças com DevOps**
+
+* _left-shift_ ou _shift-left_: priorizar participação dos envolvidos ao aplicar atividades de garantia de qualidade, segurança, privacidade, desempenho, verificação e validação **mais cedo** no ciclo de vida.
+* A **automação** produz registro de auditoria ao longo das etapas do ciclo de vida, o que inclui validação do software.
+* Mudanças culturais: implantações pequenas, simples e automatizadas que cabem no dia-a-dia da equipe.
+* Objetivos diversos: velocidade, inovação, escala...
+
+
+**Competências técnicas**
+
+* A. Utilizar ferramentas de gerência de configuração
+* B. Administrar sistemas operacionais
+* C. Adotar integração contínua
+* D. Implantar registros de auditoria (logs)
+* E. Aprimorar o monitoramento de execução
+* F. Facilitar a configuração de senhas, credenciais e conexões
+* G. Autorizar tarefas: construção, test, revisão, instalação
+* H. [Aprimorar a segurança da aplicação. DevSecOps]
+
+
+**Automação de tarefas**
+
+* A automação reduz o tempo de executar a atividade e reduz a chance de erro
+* A automação pressupõe que o conhecimento necessário nem sempre está disponível durante a realização da tarefa
+* O roteiro de automação está sujeito à revisão, mehorias e pode ser transferido
+
+
+**Resumo**
+
+* DevOps é um método ou conjunto de práticas
+* As competências técnicas básicas dependem do uso de ferramentas
+* As ferramentas evoluem e existem muitas alternativas
+* Procure perceber quais as possibilidades das ferramentas do retante da apresentação
+* Priorize e adapte essas possibilidades aos seus projetos e localize nas suas ferramentas como realizar essas possibilidades
+
+
+**Gerência de configuração**
+
+* Gerência de versões e mudanças
+  - Registra quem realizou mudanças no repositório
+  - Permite recuperar configurações específicas, selecionando mudanças
+  - Git, Github
+  - [Git](https://git-scm.com/)
+  - [Learn Git Branching](https://learngitbranching.js.org/)
+* Gerência de dependências internas e automação de construção
+  - Reduz a diferença de configuração de dependências
+  - Gerência de dependências internas e automação de construção
+  - Maven, Gradle, Npm, Yarn
+* Gerência de pacotes
+  - Instala programas executáveis
+  - Parte da tarefa de administrar um computador
+  - apt, homebrew, Windows Package Manager
+  - [AptGet/HowTo](https://help.ubuntu.com/community/AptGet/Howto)
+
+**Integração contínua**
+
+* Processo recorrente de tentar combinar os diversos elementos da aplicação
+* Primeiras tarefas são mover aplicação para fora do computador do desenvolvedor e combinar todas as configurações
+* Github Actions, Jenkis, Travis
+
+
+**Kent Beck sobre 10 práticas em Integração Contínua**
+
+Kent Beck - Engenheiro de Software americano, é o criador da metodologia de programação extrema (extreme programming) e do desenvolvimento guiado por testes (TDD). Beck sistematizou algumas das principais práticas em integração contínua, como a manutenção de um repositório unificado, o incetivo à contibuição diária, entre outras.
+
+* 1. Mantenha um repositório unificado
+* 2. Automatize a construção
+* 3. Automatize o teste da construção
+* 4. Incentive todos a contribuir no produto, todos os dias
+* 5. Cada contribuição executa teste de integração
+* 6. Mantenha o build rápido
+* 7. Teste em um ambinente igual ao de produção
+* 8. Facilite a todos a obter um executável
+* 9. Verifique que todos possam saber o que está acontecendo
+*10. Por fim, automatize a implantação
+
+
+**Entrega ou Implantação?**
+
+* A Entrega Contínua tem por objetivo verificar que o sistema está pronto para a implantação.
+* A Implantação Contínua tem o objetivo de colocar o sistema em produção.
+
+* GitHub Actions
+
+
+**Estudo de caso: Sonar**
+
+* Avaliação estática de um conjunto de regras de verificação
+* Automatiza a revisão de código que seria realizada por um programador experiente
+* [Sonar](https://sonarcloud.io)
+
+
+**Resumo**
+
+* A integração contínua é uma prática que depende da adoção de práticas relacionadas, como a propriedade coletiva e a automação de testes
+* A integração contínua sinaliza a possibilidade de combinar as contribuições dos diversos desenvolvedores em uma única entrega
+* O resultado da integração pode ser implantado manualmente ou automaticamente
+
+
+**Contêineres**
+
+* Isolamente de serviços
+  - Uma aplicação necessita de diversos serviços
+  - A instalação e configuração de um serviço em um mesmo computador pode causar interferência em outros serviços instalados
+  - Um contêiner pode ser utilizado para isolar serviços
+  - Neste caso, um contêiner pode ser utilizado para isolar serviços
+    + Exemplo: a aplicação necessita de um serviço de banco de dados
+    + A imagem contém o serviço que a aplicação necessita
+  - Ex: docker composer
+* Empacotamento da aplicação
+  - Implantar a aplicação em novo ambiente
+  - Gerenciar a instalação de dependências da aplicação
+  - A aplicação permanece em um contêiner
+  - Caso existam serviços, podem ser isolados em seus próprios contêineres
+  - Ex: a imagem da aplicação necessita de um serviço de banco de dados que foi isolado em outro contêiner
+* Docker (ex: para Node.js)
+  - Um processo do sistema operacional que executa restrito a um conjunto de recursos
+  - Isolamento provido em parte por recursos do sistema operacional
+  - docker run
+* Servidores de aplicação (ex: para Java)
+  - Um ambiente gerenciado que organiza serviços e dependências
+  - A aplicação solicita recursos ao ambiente gerenciado
+  - Java Enterprise Edition, Google Android
+
+* [Docker Get Started](https://docs.docker.com/get-started)
+* [Play with Docker](https://docker.com/101-tutorial)
