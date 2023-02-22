@@ -358,13 +358,83 @@ Por que os conteineres são bons para microserviços?
 * Permite que os desenvolvedores trabalhem em um ambiente de produção simulado
 * Remove o problema "funcionou na minha máquina"
 
+#### Docker
+
+O que é?
+
+* Tecnologia Open Source que permite criar, executar, testar e implamtar aplicações distribuídas dentor de containers de software.
+* Ela permite que você empacote um software de uma forma padronizada para o desenvolvimento, contendo tudo que é ncessário para a execução: código, runtime, ferramentas, bibliotecas, etc.
+* Docker permite que você implante aplicações rapidamente, de modo confiável e estável, em qualquer ambiente
+
+Alguns números
+
+* Existem mais de 500 mil aplicações Dockerizadas, um crescimento de 3100% ao longo de 2 anos
+* Mais de 4 bilhões de containers já foram puxados até hoje
+* Docker é apoiado por uma grande e crescente comunidade de colaboradores e usuários
+* A adoção do Docker aumentou mais de 30% no último ano
+* Cerca de 30% dos containers Dockers estão rodando em produção
+* 29% das empresas que já ouviram falar em Docker planejam usá-lo
+
+Funcionamento
+
+* A parte cliente fala com o Docker daemon, que faz o trabalho pesado de construção, execução e distribuição de seus containeres e imagens Docker, também controla os recursos executados.
+* O cliente Docker e Docker Daemon, podem ser executados no mesmo sistema, também é possível conectar um cliente Docker a um Docker Daemon remoto.
+* O cliente Docker e Daemon se comunicam através de uma API REST, através de sockets UNIX ou uma interface de rede, para execuções de comandos ou scripts
+
 
 <br/>
 
 ## Aula 02 - Vinicius Soares
 
+### Maturidade com cloud native
+
+* Cloud native é muito novo e a maioria das empresas não têm experiência para navegar por conta própria. É muito fácil e caro cometer erros.
+* A matriz de maturidade de soluções de cloud avalia a disponibilidade da nuvem em nove áreas cruciais de transformação, tanto técnicas quanto centradas no ser humano
+* Os resultados definem e descrevem onde você está agora - e mostram para onde ir a partir daqui
+* As empresas podem gerar enorme crescimento econômico e valor comercial, fornecendo serviços ou aplicativos baseados na nuvem: Instagram, Uber, WhatsApp, Netflix, Twitter - a ainda pequenas empresas surpreendentemente (se relacionarmos o número modesto de funcionários dessas empresas em seu crescimento econômico notável) cujos serviços são usados e distribuídos com frequência com cloud computing
+* No entanto, mesmo um modelo de negócios de crescimento rápido deve ter consequências e dependências a longo prazo, por isso maturidade em cloud é fator principal para escalar negócios, arquiteturas e usuários
+* Por isso segundo OPEN DATA CENTER ALLIANCE possuímos alguns passos para fazer nossa passagem e maturidade num modelo de maturidade de nuvem
+
+| Nível | Maturidade      | Critério |
+| ----- | --------------- | -------- |
+|   3   | Cloud Native    | - Transferível ente provedores de infraestutura em tempo de execução e sem interrupção do serviço. <br/> 
+                            - Dimensionar dentro/fora automaticamente com base em estímulos de requisições e volumetria. |
+|   2   | Cloud Resilient | - Estado é isolado em um mínimo de serviços. <br>
+                            - Não afetado por falhas de serviço dependentes. <br/> 
+                            - Infraestrutura independente. |
+|   1   | Cloud Friendly  | - Composto por serviços vagamente acoplados. <br/>
+                            - Os serviços podem ser descobertospelo nome. <br/>
+                            - Os componentes são projetados para padrões de nuvem. <br/>
+                            - A computação e o armazenamento são separados. |
+|   0   | Cloud Ready     | - Operado em infraestrutura virtualizada. <br/>
+                            - Criação das instâncias ou imagens por script. |
 
 
+<br/>
+
+### Particionamento de Serviços
+
+#### Domain Driven Design
+
+O que é?
+
+* Fundamentado na experiência de mais de 20 anos de Eric Evans no desenvolvimento de sistemas, o DDD é uma abordagem que reúne um conjunto de boas práticas, padrões, ferramentas e recursos da orientação a objetos que têm como objetivo a construção e desenvolvimento de sistemas de acordo com o domínio e regras de negócio do cliente.
+* Além disso, questões relacionadas ao processo de desenvolvimento, como a necessidade de um estreito relacionamento entre a equipe de programadores e os especialistas do domínio, também são tratadas pela abordagem.
+
+Características
+
+* O principal conceito do DDD é o modelo
+* O modelo expressa o domínio e negócio do cliente e pode ser criado utilizando desenhos, fluxogramas, diagramas, etc
+* O importante é que ele represente o negócio do cliente
+* Como principais componentes do DDD, podemos listar: a linguagem onipresente (ubíqua), a arquitetura em camadas e os padrões
+* É uma abordagem de desenvolvimento de software que reúne um conjunto de conceitos, princípios e técnicas cujo foco está no domínio e na lógica do domínio com o objetivo de criar uma Domain Model
+* Significa desenvolver software de acordo com o domínio relacionado ao problema que estamos propondo resolver
+* O foco da abordagem é criar um domínio que "fale a língua" do usuário usando o que é conhecido como linguagem Ubíqua
+
+##### Modelo
+
+* O modelo é evolutivo: a cada iteração entre especialistas de domínio e a equipe técnica, o modelo se torna mais profundo e expressivo, mais rico, e os desenvolvedores transferem essa fonte de valor para o software
+* Assim, o modelo vai sendo gradualmente enriquecido com a expertise dos especialistas do domínio destilado pelos desenvolvedores, fazendo com que o time ganhe cada vez mais insight sobre o negócio e que esse conhecimento seja transferido para o modelo (para o código) através dos blocos de construção do DDD.
 
 
 <br/>
