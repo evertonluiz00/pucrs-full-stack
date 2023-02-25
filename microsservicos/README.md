@@ -397,16 +397,16 @@ Funcionamento
 
 | Nível | Maturidade      | Critério |
 | ----- | --------------- | -------- |
-|   3   | Cloud Native    | - Transferível ente provedores de infraestutura em tempo de execução e sem interrupção do serviço. <br/> 
+|   3   | Cloud Native    | - Transferível ente provedores de infraestutura em tempo de execução e sem interrupção do serviço. 
                             - Dimensionar dentro/fora automaticamente com base em estímulos de requisições e volumetria. |
-|   2   | Cloud Resilient | - Estado é isolado em um mínimo de serviços. <br>
-                            - Não afetado por falhas de serviço dependentes. <br/> 
+|   2   | Cloud Resilient | - Estado é isolado em um mínimo de serviços. 
+                            - Não afetado por falhas de serviço dependentes.  
                             - Infraestrutura independente. |
-|   1   | Cloud Friendly  | - Composto por serviços vagamente acoplados. <br/>
-                            - Os serviços podem ser descobertospelo nome. <br/>
-                            - Os componentes são projetados para padrões de nuvem. <br/>
+|   1   | Cloud Friendly  | - Composto por serviços vagamente acoplados. 
+                            - Os serviços podem ser descobertospelo nome. 
+                            - Os componentes são projetados para padrões de nuvem. 
                             - A computação e o armazenamento são separados. |
-|   0   | Cloud Ready     | - Operado em infraestrutura virtualizada. <br/>
+|   0   | Cloud Ready     | - Operado em infraestrutura virtualizada. 
                             - Criação das instâncias ou imagens por script. |
 
 
@@ -431,11 +431,23 @@ Características
 * Significa desenvolver software de acordo com o domínio relacionado ao problema que estamos propondo resolver
 * O foco da abordagem é criar um domínio que "fale a língua" do usuário usando o que é conhecido como linguagem Ubíqua
 
-##### Modelo
+Modelo
 
 * O modelo é evolutivo: a cada iteração entre especialistas de domínio e a equipe técnica, o modelo se torna mais profundo e expressivo, mais rico, e os desenvolvedores transferem essa fonte de valor para o software
 * Assim, o modelo vai sendo gradualmente enriquecido com a expertise dos especialistas do domínio destilado pelos desenvolvedores, fazendo com que o time ganhe cada vez mais insight sobre o negócio e que esse conhecimento seja transferido para o modelo (para o código) através dos blocos de construção do DDD.
+* Quando novas regras de negócio são adicionadas e/ou regras existentes são alteradas ou removidas, a implementação é refatorada para refletir essas alterações do modelo no código.
+* No final, o modelo (que em última instância será o software) vai expressar com riqueza de conhecimento o negócio.
 
+Vantagens
+
+* O código fica menos acoplado e mais coeso
+* O negócio é melhor compreendido por todos da equipe, o que facilita o desenvolvimento.
+* Alinhamento do código com o negócio
+* Favorecer reutilização
+* Mínimo de acoplamento
+* Independência de Tecnologia
+
+#### DDD e Event Storming
 
 <br/>
 
