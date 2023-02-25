@@ -397,17 +397,10 @@ Funcionamento
 
 | Nível | Maturidade      | Critério |
 | ----- | --------------- | -------- |
-|   3   | Cloud Native    | - Transferível ente provedores de infraestutura em tempo de execução e sem interrupção do serviço. 
-                            - Dimensionar dentro/fora automaticamente com base em estímulos de requisições e volumetria. |
-|   2   | Cloud Resilient | - Estado é isolado em um mínimo de serviços. 
-                            - Não afetado por falhas de serviço dependentes.  
-                            - Infraestrutura independente. |
-|   1   | Cloud Friendly  | - Composto por serviços vagamente acoplados. 
-                            - Os serviços podem ser descobertospelo nome. 
-                            - Os componentes são projetados para padrões de nuvem. 
-                            - A computação e o armazenamento são separados. |
-|   0   | Cloud Ready     | - Operado em infraestrutura virtualizada. 
-                            - Criação das instâncias ou imagens por script. |
+|   3   | Cloud Native    | - Transferível ente provedores de infraestutura em tempo de execução e sem interrupção do serviço. - Dimensionar dentro/fora automaticamente com base em estímulos de requisições e volumetria. |
+|   2   | Cloud Resilient | - Estado é isolado em um mínimo de serviços. - Não afetado por falhas de serviço dependentes. - Infraestrutura independente. |
+|   1   | Cloud Friendly  | - Composto por serviços vagamente acoplados. - Os serviços podem ser descobertospelo nome. - Os componentes são projetados para padrões de nuvem. - A computação e o armazenamento são separados. |
+|   0   | Cloud Ready     | - Operado em infraestrutura virtualizada. - Criação das instâncias ou imagens por script. |
 
 
 <br/>
@@ -448,6 +441,87 @@ Vantagens
 * Independência de Tecnologia
 
 #### DDD e Event Storming
+
+O que é?
+
+* Event Storming é uma técnica de design rápido que engaja especialista do domínio de negócios com desenvolvedores para que alcancem um ciclo rápido de aprendizagem (aprender o máximo possível no menor tempo possível)
+* Segundo Martin Flowler - Bounded Context (Contexto limitado) é um padrão central no design orientado a domínio
+* É o foco da seção de design estratégico da DDD que trata de lidar com grandes modelos e quipes. O DDD lida com modelos grandes, dividindo-os em diferentes contextos limitados e sendo explícito sobre suas inter-relações
+
+Etapas
+
+* Eventos de domínios
+  - Use eventos de domínio para implementar explicitamente os efeitos colateriais de alterações em seu domínio. Em outras palavras, e usando terminologia DDD, use eventos de domínio para implementar explicitamente efeitos colaterais entre várias agregações
+  - Opcionalmente, para melhor escalabilidade e menor impacto em bloqueios de banco de dados, use consistência eventual entre agregações dentro do mesmo domínio.
+  - Um evento é algo que ocorreu no passado. Um evento de domínio é algo que ocorreu no domínio que você deseja que outras partes do mesmo domínio (em processo) tenham conhecimento. As partes notificadas geralmente reagem de alguma forma ao eventos
+  - Um benefício importante dos eventos de domínio é que os efeitos colaterais podem ser expressos explicitamente
+  - Em resumo, eventos de domínio ajudam você a expressar, explicitamente, as regras de domínio, com base na linguagem ubíqua fornecida pelos especialistas do domínio. Os eventos de domínio também permitem uma melhor separação de interesses entre classes dentro do mesmo domínio.
+  - É importante garantir que, assim como uma transação de banco de dados, todas as operações relacionadas a um evento de domínio sejam concluídas com êxito ou nenhuma delas seja
+
+* Comandos de domínio
+  - Nesta etapa, você muda da análise do domínio para os primeiros estágios do design do sistema
+  - Até esse momento, você está simplesmente tentando entender como os eventos no domínio se relacionam - é por isso que a participação de especialistas em domínios é tão crítica
+  - No entanto, para criar um sistema que implemente o processo de negócios em que você está interessado, é necessário passar à questão de como esses eventos ocorrem
+  - Os comandos são o mecanismo mais comum pelo qual os eventos são criados
+  - A chave para encontrar comandos é fazer a pergunta: "Por que esse evento ocorreu?"
+  - Nesta etapa, o foco do processo passa para a sequência de ações que levam a eventos
+  - Seu objetivo é encontrar as causas pelas quais os eventos registram os efeitos. Os tipos de gatilhos de eventos esperados são:
+    + Um operador humano toma uma decisão e emite um comando
+    + Algum sistema ou sensor externo fornece um estímulo
+    + Um evento resulta de alguma política - processamento tipicamente automatizado de um evento precursor
+    + A conclusão de algum período determinado de tempo decorrido
+  - Outra parte importante do processo que se torna mais detalhada nessa etapa é a descrição de politicas que podem acionar a geração de um evento a partir de um evento anterior (ou conjunto de eventos)
+  - Avalie se o elemento de dados é uma entidade comercial principal, identificada exclusivamente por uma chave, suportada por vários comandos
+  - Tem uma vida útil ao longo do processo de negócios. Isso levará ao desenvolvimento de uma análise do ciclo de vida da entidade
+  - Esse primeiro nível de definição de dados ajuda a avaliar o escopo e a responsabilidade do micro serviço à medida que você começa a ver pontos em comum emergindo dos dados usados entre vários eventos relacionados
+  - O comando pode se tornar uma operação de micro serviço exposta via API
+  - Durante o processo, é comum identificar que um comando pode gerar vários eventos
+
+* Agregações
+  - Agregação é um padrão no DDD
+  - Um agregado DDD é um cluster de objetos de domínio que podem ser tratados como uma única unidade
+  - Um exemplo pode ser um pedido e seus itens de linha, esses serão objetos separados, mas é útil tratar o pedido (junto com seus itens de linha) como um único agregado
+  - Um agregado terá um de seus objetos componentes como a raiz agregada. Quaisquer referências externas ao agregado devem apenas ir para a raiz agregada
+  - A raiz pode assim garantir a integridade do agregado como um todo
+  - Agregados são o elemento básico da transferência de armazenamento de dados - você solicita carregar ou salvar agregados inteiros. As transações não devem cruzar fronteiras agregadas
+  - As vezes, os agregados DDD são confundidos com as classes de coleção (lista, mapas, etc). Agregados DDD são conceitos de domínio (ordem, visita à clínica, lista de reprodução), enquanto as coleções são genéricas
+  - Um agregado geralmente contém coleções múltiplas, junto com campos simples
+  - O termo "agregado" é comum e é usado em vários contextos diferentes (por exmeplo UML), caso em que não se refere ao mesmo conceito que um agregado DDD
+  - Os aggregates são a parte do sistema que recebem os comandos e que geram os eventos, eles são os objetos que armazenam os dados e são modificados pelos comandos
+  - Aplicativos tradicionais têm usado frequentemente transações de banco de dados par aimpor a consistência
+  - Em um aplicativo distribuído, no entanto, isso muitas vezes não é viável
+  - Uma única transação empresarial pode abranger vários repositórios de dados, ser demorada ou envolver serviços de terceiros
+  - Por fim, cabe ao aplicativo, não à camada de dados, impor as variáveis necessárias para o domínio. É isso que as agregações destinam-se a modelar
+  - Pode-se utilizar o nome entidade ou dado quando for falar sobre Aggregate
+
+* Limtes
+  - Bounded Context é um padrão central no design orientado a domínio
+  - É o foco da seção de design estratégico da DDD que trata de lidar com grandes modelos e equipes
+  - O DDD lida com modelos grandes, dividindo-os em diferentes contextos limitados e sendo explícito sobre suas inter-relações
+  - A medida que você tenta modelar um domínio maior, fica progressivamente mais difícil criar um único modelo unificado
+  - Diferentes grupos de pessoas usarão vocabulários sutilmente diferentes em diferentes partes de uma grande organização
+  - A precisão da modelagem rapidamente se depara com isso, muitas vezes levando a muita confusão. Normalmente, essa confusão se concentra nos conceitos centrais do domínio
+  - Contextos limitados têm conceitos não relacionados (como um tíquete de suporte existe apenas no contexto de suporte ao cliente), mas também compartilham conceitos (como produtos e clientes)
+  - Contextos diferentes podem ter modelos completamente diferentes de conceitos comuns, com mecanismos para mapear entre esses conceitos polissêmicos para integração
+  - Vários fatores traçam limites entre contextos
+  - Normalmente, a dominante é a cultura humana, já que os modelos agem como linguagem onipresente, você precisa de um modelo diferente quando a linguagem nmuda
+  - Você também encontra vários contextos no mesmo contexto de domínio, como a separação entre modelos de banco de dados relacional e na memória em um único aplicativo
+  - Esse limite é definido pela maneira diferente como representamos os modelos
+  - Podem estar relacionados à divisões departamentais
+  - Podem ser diferentes visões que os especialistas do negócio possuem sobre o mesmo conceito
+  - Agregadores que são importantes
+  - Mapear eventos que "naveguem" entre os domínios
+
+<br/>
+
+### Comunicação entre os serviços
+
+"HTTP é o padrão de comunicação no microservices" - _Martin Fowler_ <br/>
+"Os serviços devem ser assíncronos" - _Jonar Bonér_ <br/>
+
+<br/>
+
+
 
 <br/>
 
