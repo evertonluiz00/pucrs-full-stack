@@ -521,6 +521,43 @@ Etapas
 
 <br/>
 
+Características
+
+* Síncrona
+  - Espera resposta
+  - Comunicação em tempo real
+  - Balanceador de carga a nível de infraestrutura
+  - Tratamento de erros pode ser pelo status do http
+  - REST, SOAP, CDI
+
+* Assíncrono
+  - Não espera resposta
+  - Comunicação entre os dados pode ter "delay" entre as estruturas
+  - Balanceador de carga pode ser uma fila
+  - Possibilidade de Service Discovery / Message broker
+  - Tratamento de erros pode ficar no gerenciador da fila
+  - Em caso de erros, o gerenciador de mensagens pode tratar o reenvio
+  - Mensagens, Eventos, Replicações de base
+
+
+##### Comunicação orientada a eventos
+
+Características
+
+* Mudanças de estado
+* Dispare e esqueça
+* Atores de eventos (consumidores x produtores)
+* Acontecimentos no passado
+* Estados imutáveis
+* Diminui acoplamento entre aplicações
+* Processos assíncronos
+* Encaixa perfeitamente patterns (CQRS / DDD)
+* Reprodução de estados
+* Segundo Martin Fowler, 4 temas estão sempre presentes:
+  - Event Notification
+  - Event-carried state transfer
+  - Event Sourcing
+  - CQRS
 
 
 <br/>
