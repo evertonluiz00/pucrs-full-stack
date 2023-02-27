@@ -540,7 +540,7 @@ Características
   - Mensagens, Eventos, Replicações de base
 
 
-##### Comunicação orientada a eventos
+#### Comunicação orientada a eventos
 
 Características
 
@@ -558,6 +558,46 @@ Características
   - Event-carried state transfer
   - Event Sourcing
   - CQRS
+
+
+Quando utilizar
+
+* Arquitetura distribuída
+* Arquitetura Microsserviços
+* Volumetria dos dados
+* Responsividade
+* Escalabilidade
+
+Benefícios
+
+* Suporte a demanda de negócio com melhor serviço
+  - menos espera, sem processos batch
+* Sem integração ponto a ponto
+  - dispara e esquece
+* Possibilita grandes performances
+  - uso de brokers poderosos (Kafka)
+
+**Padrões de mensagens**: coreografia x orquestração <br/>
+
+##### Orquestração
+
+* Processo sincronizado de comunicação
+* Possui uma lógica na sequência de eventos
+* Existe um ponto de partida e chegada
+* Você sabe exatamente o resultado ao final da execução
+* Acoplamento apertado
+* Confiança em APIs RESTFull
+
+Vantagens
+
+* Acoplamento de serviço solto para agilidade e tolerância a falhas
+* Desenvolvimento mais rápido e ágil
+* Aplicações mais consistentes e eficientes
+
+Desvantagens
+
+* O controlador das chamadas precisa se comunicar diretamente com cada serviço e aguardar a resposta de casa um deles. Agora que essas interações estão ocorrendo na rede, as invocações demoram mais e podem ser afetadas pela disponibilidade da red e do serviço que está sendo invocado
+* Em ambientes menores, isso pode funcionar muito bem, mas as coisas desmoronam quando você está falando de centenas ou mesmo milhares de microsserviços. Você basicamente criou um aplicativo monolítico distribuído que é mais lento e quebradiço do que os do passado! Assim como um maestro perderia sua capacidade de gerenciar efetivamente uma orquestra maciça, porque cada músico agurada atenção individual, não é viável solicitar a um serviço de controle para gerenciar tantos microsserviços
 
 
 <br/>
