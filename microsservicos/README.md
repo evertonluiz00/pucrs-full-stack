@@ -600,6 +600,33 @@ Desvantagens
 * Em ambientes menores, isso pode funcionar muito bem, mas as coisas desmoronam quando você está falando de centenas ou mesmo milhares de microsserviços. Você basicamente criou um aplicativo monolítico distribuído que é mais lento e quebradiço do que os do passado! Assim como um maestro perderia sua capacidade de gerenciar efetivamente uma orquestra maciça, porque cada músico agurada atenção individual, não é viável solicitar a um serviço de controle para gerenciar tantos microsserviços
 
 
+##### Coreografia
+
+* Fluxos de longa duração
+   - Coreografia pode ter um longo fluxo de ações a serem realizadas. Referindo-se ao termo "longa duração", queremos dizer que pode levar minutos, horas ou até dias até que o processamento seja concluído
+* Colaboraçãõ de eventos
+  - O ponto central da ideia de colaboração de eventos é que todos os microsserviços publicarão eventos quando algo relevante para o negócio acontecer dentro deles. Outros serviços podem se inscrever nesse evento e fazer algo com ele, por exemplo armazenar as informações associadas de forma ideal para seus próprios fins.
+* Transformação de comando de evento
+  - Por definição, um evento visa informá-lo sobre um fato relevante que ocorreu e que algum outro serviço pode estar interessado. Mas, no momento em que exigimos que um serviço acompanhe um evento, usamos esse seriço como se tivesse o significado semântico de um comando. A consequência disso: acabamos com o acoplamento mais apertado do que o necessário
+
+
+##### Sagas
+
+* Uma saga é uma sequência de transações locais. Cada serviço em uma saga realiza sua própria transação e publica um evento. Os outros serviços ouvem esse evento e executam a próxima transação local. Se uma transação falhar por algum motivo, a saga também executa transações de compensação para desfazer o impacto das transações anteriores
+* Quando um usuário faz um pedido em um serviço de delivery, pode existir esta sequência de ações
+  - O serviço de pedidos de commida cria um pedido. Neste ponto, o pedido está em um estado PENDENTE. Uma saga gerencia a cadeia de eventos
+  - A saga entra em contato com o restaurante através do serviço do restaurante.
+  - O serviço do restaurante tenta fazer o pedido no restaurante escolhido. Depois de receber uma confirmação, ele envia uma resposta
+  - A saga recebe a resposta. E dependendo da resposta, ele pode aprovar o pedido ou rejeitá-lo.
+  - O serviço de pedido de comida altera o estado do pedido. Se o pedido fosse aprovado, informaria o cliente com os próximos detalhes. Se rejeitado, também informará o cliente com uma mensagem de desculpas.
+
+Tipos
+
+* Saga baseada em Orquestração
+  - Nessa abordagem, existe um orquestrador Saga que gerencia todas as transações e direciona os serviços participantes para executar transações locais com base em eventos. Este orquestrador também pode ser considerado um SAGA MANAGER
+* Saga baseada em Coreografia
+  - Nesta abordagem, não há orquestrador central. Cada serviço participante da Saga realiza suas transações e publica eventos. Os outros serviços atuam sobre esses eventos e realizam suas transações. Além disso, eles podem ou não publicar outros eventos com base na situação de negócio
+
 <br/>
 
 ## Aula 03 - Luis Fernando Planella
