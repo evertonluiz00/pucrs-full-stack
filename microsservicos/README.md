@@ -629,6 +629,113 @@ Tipos
 
 <br/>
 
+### Integração Contínua
+
+* Uma prática de desenvolvimento de software onde os membros do time de desenvolvimento integram seu trabalho constantemente
+* Cada integração é feita automaticamente por um processo para detectar falhas rapidamente
+* Reduz drasticamente problemas de integração e possibilita o desenvolvimento de um software seguro e coeso
+
+Boas práticas
+
+* Escreva testes automatizados para desenvolvedores
+* Execute compilações privadas
+* Confirme código com frequência
+* Não confirme código com defeito
+* Evite obter código com defeito
+* Corrija construções com defeitos imediatamente
+* Todos os testes e inspeções devem passar
+
+<br/>
+
+### Integração Contínua
+
+* Quão frequente você entrega software em produção para seus usuários?
+* Releases entregue em produção de forma frequente
+* Medida real de progresso
+* Feedback do usuário
+* Reduz consideravelmente o risco de release
+
+Princípios e boas práticas
+
+* Cada commit gera um release condidate
+* Automatize tudo que pode ser automatizado
+* "If it hurts, do it more often and bring the pain forward"
+* A qualidade interna é obrigatória
+* Testes automatizados são essenciais
+* Todo mundo é responsável pela release
+* Pronto significada released
+* Melhoria Contínua (Continuous Improvement)
+
+
+#### Build Pipeline
+
+* Commit Stage
+  - Poll SCM
+  - Compilação
+  - Cobertura dos testes
+  - Unitários e integração
+  - Qualidade do código fonte
+  - Conformidades com padrões empresariais
+  - Possíveis bugs
+  - Boas práticas
+  - Empacotamento e publicação
+* Acceptance Stage
+  - Testes automatizados
+  - Testes funcionais
+  - Testes de aceitação
+  - Testes de performance
+  - Testes de segurança
+
+Considerações
+
+* Automatização + testes = sucesso
+* Reduza os riscos com releases incrementais
+* Existem inúmeras formas de se construir um build pipeline
+* Cultura DevOps é necessária
+* Prepare-se: quanto tempo você demora para reconstruir o seu ambiente a partir do zero?
+* Dificuldades:
+  - Exige mudança cultural
+  - Maior dificuldade encontrada nas implantações de Continuous Delivery
+  - Exige Ciclos Curtos
+  - Empresas organizadas em silos/áreas
+  - Requer envolvimento de todos
+
+<br/>
+
+### Database Continuous Migration
+
+Motivos
+
+* Fornecer atualizações de aplicativos e banco de dados a nossos clientes
+* Alguns clientes exigem que scripts SQL sejam executados por meio de ferramentas de administração de banco de dados, por exmeplo Oracle (sqlplus)
+* Não temos esquemas de banco de dados que refletem o que foi aplicado em termos de atualizações - sempre os mais novos
+* Na verdade, não entendemos o que o ORM está fazendo para criar/modificar tabelas com base em nossos objetos persistentes, contamos como ele para otimização, índices, etc
+
+Boas práticas
+
+* Estruture scripts SQL para criação do esquema, ou atualizações do esquema adequadamente
+* Possibilidade de retrocesso / rollback para estados anteriores
+* Use uma ferramenta para executar essas migrações
+  - Em uma ordem específica
+  - Em um banco de dados específico (MySQL, Oracle, POstgres, etc)
+  - Gravando as ações em uma tabela de versão do esquema
+* Execute um comando de cada vez
+* Always forward
+* Tratar zero downtime para suas aplicações durante o deploy
+* Scripts claros
+* Versionamento em ordem cronológica correta
+* Baby steps: menor batch size possível
+* Muitas linhas = longos locks
+* Se necessário, destrua e recrie as constraints do banco ao terminar a migration
+
+**Zero downtime migration**
+
+* Flyway
+  - Habilita a execução das migrações
+  - A partir de um shell programaticamente
+
+<br/>
+
 ## Aula 03 - Luis Fernando Planella
 
 
