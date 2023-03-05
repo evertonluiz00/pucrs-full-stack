@@ -739,4 +739,179 @@ Boas práticas
 ## Aula 03 - Luis Fernando Planella
 
 
-### Introdução
+### Comunicação assíncrona via filas
+
+Modelo requisição / resposta
+
+* Também chamada de cliente / servidor
+* Pode ser síncrono ou assíncrono
+* O cliente envia uma requisição ao servidor
+* O servidor retorna uma resposta ao cliente
+* Há um alto acoplamento entre cliente e o servidor
+  - O cliente necessita conhecer exatamente o servidor
+  - Necessita passar os dados de forma esperada
+  - Também necessita tratar a resposta ou erro
+* Ambos serviços precisam estar responsivos no momento
+* Uma falha no servidor gere uma falha no cliente
+
+Modelo produtor / consumidor (pub / sub)
+
+* _Produtor_ ou _publicador_: gera as mensagens
+* _Consumidor_ ou _subscritor_: notificado quando há mensagens
+* Há um **desacoplamento** entre o produtor e o consumidor
+
+Fila de mensagens
+
+* Estrutura em que cada mensagem produzida por um produtor é entregue a um único consumidor
+* Adequado para a distribuição de carga
+* Quando não há nenhum consumidor registrado ou disponível, a mensagem geralmente é armazenada
+  - Assim que um consumidor estiver disponível, a mensagem é entregue
+
+Tópicos de mensagens
+
+* Estrutura em que cada mensagem produzida por um produtor é entregue a todos os consumidores resgistrados
+* Multicast
+* Geralmente não há persistência das mensagens
+* Somente consumidores registrados no momento em que a mensagem é gerada a recebem
+
+### Message Broker
+
+* Sistema especializado em recepção e envio de mensagens
+* Desconhece detalhes sobre os produtores e consumidores
+* Capazes de persistir mensagens
+* Capazes de entregar novamente uma mensagem em caso de falaha do consumidor
+* Existem diversos serviços de mensageria bem conhecidos
+  - Kafka, ActiveMQ, RabbitMQ
+
+* Um message broker confiável é essencial em uma arquitetura de microsserviços
+* Importante evitar um ponto único de falha
+  - Ou seja, um componente que, caso falhe, impacta ou indisponibiliza o sistema todo
+  - Replicação / redundância
+* Também é importante lidar com problemas de escalabilidade
+  - Monitoramento constante, já que tende a ser um componente do sistema bastante demandado
+
+* A maiorira dos provedores cloud oferecem serviços gerenciados de message brokers
+* Desta forma, o operador do sistema não precisa configurar e manter em operação o serviço
+* Exemplos:
+  - Amazon MQ, Google Pub/Sub, Azure Service Bus
+* Este é um tipo de operação _Serveless_
+
+Exemplos de código
+
+* Os exemplos de código utilizam o protocolo AMQP (Advanced Message Queuing Protocol)
+  - Implementado pelo ActiveMQ, RabbitMQ e outros
+* Escritos em TypeScript, rodando sobre nodejs
+* [Disponível através deste link no Github ](https://github.com/luisfpg/produtor-consumidor)
+
+
+#### Tipos de garantias de entrega de mensagens
+
+Entrega **no máximo uma vez** - _at-most-once delivery_
+
+* Há uma única tentativa de entrega da mensagem
+* Ela é perdida em caso de erro
+* Nenhum estado é mantido, portanto é a implementação mais simples e rápida
+* Ideal para IoT, por exemplo, como sensores constantemente enviando medições
+* Não pode ser usada quando perdas eventuais de mensagens não são toleradas
+
+Entrega **ao menos uma vez** - _at-least-once delivery_
+
+* É realizada a entrega da mensagem. Em caso de erro ou limite de tempo, ela será entregue novamente
+* Há necessidade de manter estado no componente de entrega
+* Poderá duplicar o processamento ou resultado
+  - Por isso é essencial que o tratamento de mensagens seja **idempotente**, isto é, nõa deixe o estado do sistema inconsistente se executado mais de uma vez
+
+Entrega **exatamente uma vez** - _exactly-once delivery_
+
+* Há a garantia de que cada mensagem seja entregue uma única vez, mesmo que hajam falhas ou limite de tempo
+* É o mecanismo mais complexo, pois exige estado em ambos os componentes - entrega e recepção
+* O componente de envio deve manter estado para transmitir mensagens falhadas ...
+* ... e o de recepção deve manter estado para ignorar mensagens que já tenham sido previamente enviadas
+
+Notificação de eventos de domínio
+
+* Nesta abordagem, o sistema gera mensagens que representam eventos que ocorrem em um microsserviço para que outros microsserviços possam reagir de acordo
+
+Processamento paralelo
+
+* Neste caso, os consumidores são "trabalhadores"
+* Cada evento contém uma seleção do que será processado
+  - Identificador, intervalo de datas, etc
+* Exemplo: quando há grandes volumes de dados a serem processados, pode-se dividir o processamento
+* Cada trabalhador pode ser modelado como uma função no _FaaS_
+
+Problemas com transações de BD
+
+* Um microsserviço precisa, de forma transacional:
+  - Atualizar sua base de dados e
+  - Publicar a mensagem correspondente
+* Isto é comum em Sagas
+* Como garantir que ambas sucedam ou falhem atomicamentte?
+* Padrão de design: Caixa de saída transacional
+
+
+### Serverless
+
+* Aplicações _serverless_ **necessitam** de um servidor para rodar
+* Elas não sabem **qual** servidor vai rodá-las
+* O conceito de serverless é geralmente relacionado ao **_FaaS_** (Function as a Service)
+* Mas o conceito pode ser considerado mais amplo
+  - Serviços gerenciados (base de dados, buscas, message broker, etc) também são serverless
+
+* Aplicações serverless retiram do operador do sistema a responsabilidade de gerenciar a infraestrutura do sistema
+  - Atualizações de segurança do sistema operacional
+  - Atualizações do software de base (bibliotecas)
+  - Muito importantes: patches de segurança
+  - Administração de capacidade ou escala
+
+* O desenvolvedor / operador foca **apenas** na aplicação, não na infraestrutura
+* Desvantagem de ter menos controle sobre a infraestrutura que roda o serviço
+  - Quando ocorrem (raros) problemas mais específicos, pode ficar complicada a resolução dos mesmos
+
+
+### FaaS - Function as a Service
+
+* Neste modelo, o desenvolvedor empacota funções
+* Geralmente é utilizado um container (como o Docker)
+* A medida que há demanda, o ambinente aloca recursos para executar a função
+* Quando a demanda cessa, o ambinete libera recursos
+* Adequado para funções de processamento, não para sistemas de persistência de dados
+
+
+Vantagens
+
+* Otimização de custos, pois somente será cobrado quando houver demanda
+* Escala flexível: a infraestrutura vai alocar mais recursos com o aumento de demanda, e desalocar recursos desnecessários
+  - Inclusive até chegar ao ponto de nehum recurso alocado, ou seja, custo zero
+
+Desvantagens
+
+* Aumento na complexidade da infraestrutura
+* Difícil prever o custo final, pois depende da demanda
+* Maior dificuldade na depuração
+  - O código de cada função é isolado em um container
+* Quando é necessário aumentar a escala, pode ocorrer um atraso devido ao tempo necessário para inicializar a função
+  - O tempo de "aquecimento" da função pode impactar na experiência do usuário. O Java é um exemplo notável
+
+
+Provedores
+
+* Todos os principais provedores cloud ofertam FaaS
+  - Amazon AWS Lambda, Google Cloud Functions, etc
+* Cuidado com o _vendor lock-in_!
+  - Ocorre se as funções forem escritas utilizando a API de um provedor específico
+  - Neste caso será muito difícil uma eventual migração para outro provedor se necessário
+
+**Knative**
+
+* Uma solução padronizada emerge: Knative
+* Roda sobre o Kubernetes (k8s), que é um padrão de fato
+  - Suportado pela grande maioria dos provedores de cloud
+
+**Kuberntes**
+
+* Funciona com container (Docker)
+* Resolução DNS e balanceamento de carga para os serviços
+* Escalonamento de serviços, permitindo inclusive a auto-escala (aumento e diminuição na quantidade de réplicas de uma serviço de acordo com a demanda)
+* O Kubernetes é um sistema complexo, mas que busca resolver um problema complexo
+* Pode ser instalado desde a máquina do desenvolvedor até clusters de milhares de nodos
