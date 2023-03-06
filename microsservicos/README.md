@@ -908,10 +908,24 @@ Provedores
 * Roda sobre o Kubernetes (k8s), que é um padrão de fato
   - Suportado pela grande maioria dos provedores de cloud
 
-**Kuberntes**
+* Expõe cada função em um container (Docker)
+* O Knative atribui uma URL para invocar cada função
+* A função deve levantar um servidor HHTP
+* O Knative roteia uma requisição para a função
+* Como a única responsabilidade da função é escutar em uma porta e retornar uma resposta, ela pode ser escrita em qualquer linguagem de programação
+
+Exemplo de código
+
+* Escrito em TypeScript, rodando sobre nodejs
+* É utilizada a biblioteca [ Hapi ](https://hapi.dev)
+* [ Disponível através deste link no Github ](https://github.com/luisfpg/exemplo-knative)
+
+**Kubernetes**
 
 * Funciona com container (Docker)
 * Resolução DNS e balanceamento de carga para os serviços
 * Escalonamento de serviços, permitindo inclusive a auto-escala (aumento e diminuição na quantidade de réplicas de uma serviço de acordo com a demanda)
 * O Kubernetes é um sistema complexo, mas que busca resolver um problema complexo
-* Pode ser instalado desde a máquina do desenvolvedor até clusters de milhares de nodos
+* Pode ser instalado desde a máquina do desenvolvedor (Kind ou Minikube) até clusters de milhares de nodos
+
+
