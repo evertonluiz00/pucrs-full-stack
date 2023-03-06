@@ -928,4 +928,37 @@ Exemplo de código
 * O Kubernetes é um sistema complexo, mas que busca resolver um problema complexo
 * Pode ser instalado desde a máquina do desenvolvedor (Kind ou Minikube) até clusters de milhares de nodos
 
+Aplicações adequadas para FaaS
 
+* Nem todo tipo de aplicação é adequada para este modelo
+* Ideal para funções disparadas por eventos
+  - Sensores
+  - Eventos do domínio de negócio que demandam processamento adicional
+  - Processamento multimídia
+  - Extração, transformação e carga (ETL) de dados
+* Mas não para aplicações que ficam o tmepo todo rodando
+* Ou que fazem processamentos excessivamente longos
+
+Restrições para aplicações FaaS
+
+* Como o container que roda a função é efêmero, isto é, será criado e destruído muitas vezes, eles deve:
+  - Iniciar rápido (milisegundos)
+  - Ocupar pouca memória
+  - Responder rápido
+* As funções não devem ter estado! Qualquer estado deve ser lido a cada execução da base de dados
+* Alguns provedores limitam o tempo máximo que uma função pode rodar (10 - 15 minutos)
+
+
+### Microsserviços
+
+* A arquitetura de microsserviços é uma evolução natural da arquitetura monolítica
+* Incorpora aspectos como comunicação de rede, escalabilidade, distribuição, replicação e muito mais
+* É um mundo complexo
+* São muitos conceitos, aspectos, modelos e tecnologias em constante evolução
+
+* Todos esses elementos foram desenvolvidos a partir da necessidade de sistemas mais **escaláveis e confiáveis**
+* Nestes caso, o monolito não é a melhor opçõa, ou mesmo uma opção viável
+
+Exemplo de código
+
+* [ Microsserviços ](https://github.com/luisfpg/exemplo-microsservicos)
